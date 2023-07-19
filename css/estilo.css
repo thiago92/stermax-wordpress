@@ -1,0 +1,544 @@
+@import "index.css";
+@import "assistencia.css";
+@import "contato.css";
+@import "produto.css";
+@import "produtos.css";
+@import "faq.css";
+@import "download.css";
+@import "politica.css";
+
+
+/*Body da página*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #FFFFFF;
+    overflow-x:hidden;
+}
+
+/*--------------------------------------- 
+Inicio do header 
+---------------------------------------------------*/
+
+/* ----------------------------
+inínio do navTopo
+--------------------------------- */
+
+.navTopo {
+    background: #424242;
+    padding: 10px;
+}
+
+.navTopo .col-md-5{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.navTopo .col-md-5 span{
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+}
+
+.navTopo .col-md-6{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.navTopo .col-md-6 span{
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+    padding-right: 10%;
+}
+
+.navTopo .contato{
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFC12A;
+}
+
+.navTopo .endereco{
+    font-size: 12px;
+    font-weight: 500;
+    color: #C0C0C0;
+}
+
+.navTopo .col-md-1 ul, ul li, a{
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.navTopo .col-md-1 ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.navTopo .col-md-1 ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 3px;
+    padding: 2px 8px;
+    background: #323232;
+    border-radius: 50%;
+}
+
+.navTopo .col-md-1 ul li a i{
+    color: white;
+    font-size: 100%;
+}
+
+/* -----------------------------
+Fim do navTopo
+------------------------------- */
+
+/* ----------------------------------
+Início do navMenu
+--------------------------------- */
+
+.navMenu {
+    background: #353535;
+    text-align: center;
+    padding: 15px;
+    z-index: 100;
+}
+
+.navMenu .col-md-2 img{
+    width: 110% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+}
+
+.navMenu .col-md-8 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.navMenu .col-md-8 .nav-link {
+    font-size: 15px;
+    font-weight: 600 !important;
+    color: white !important;
+    padding: 0 10px;
+}
+
+.navMenu .btn {
+    background: #FFC12A;
+    border-radius: 25px;
+    color: #353535;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.navMenu .btn:hover {
+    background: black;
+    color: white;
+}
+
+.navMenu ul li {
+    border-bottom: 3px solid #353535;
+}
+.navMenu ul li:hover{
+    color: #FFC12A !important;
+    border-bottom: 3px solid #FFC12A;
+    background: #353535 !important;
+}
+
+.navMenu ul li a:hover{
+    color: #FFC12A !important;
+}
+  
+.dropdown {
+    background: #353535;
+}
+
+/* Início - Dropdown em níveis */
+.navMenu .menu, .sub-menu {
+    margin: 0;
+    padding: 0;
+}
+
+.navMenu .clearfix:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.navMenu .menu, .sub-menu {
+    list-style: none;
+}
+
+.navMenu .sub-menu {
+    background: #353535;
+    padding: 0 !important;
+    margin: 5px 0 0 0 !important;
+    z-index: 99;
+}
+
+.navMenu .sub-menu li{
+    padding: 15px 0 !important;
+}
+
+.navMenu .menu a {
+    text-decoration: none;
+    display: block;
+}
+
+.navMenu .sub-menu a {
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.navMenu .menu li {
+    position: relative;
+}
+
+.navMenu .menu > li {
+    float: left;
+}
+
+.navMenu .menu > li:hover {
+    background: #3A3F45;
+}
+
+.navMenu .menu li:hover > .sub-menu {
+    display: block;
+}
+
+.navMenu .sub-menu {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+}
+
+.navMenu .sub-menu li {
+    border-bottom: none !important;
+}
+
+.navMenu .sub-menu li:hover {
+    background: #3A3F45 !important;
+    border-bottom: none !important;
+}
+
+.navMenu .sub-menu li a:hover {
+    color: white !important;
+}
+
+.navMenu .sub-menu .sub-menu {
+    top: -5px;
+    left: 100%;
+    width: 200px;
+}
+
+.navMenu .sub-menu i {
+    font-size: 40%;
+    padding-left: 5px;
+}
+
+.navMenu .zoomImg {
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+  
+.navMenu .zoomImg:hover {
+    transform: scale(1.1);
+  }
+/* Fim - Dropdown em níveis */
+/* ---------------------------------
+Fim do navMenu
+------------------------------------- */
+
+/* --------------------------
+Fim do header
+-------------------------------- */
+
+
+/* -------------------------
+Início do footer
+-------------------------- */
+
+/* ------------------------
+Início do rodapeSuperior 
+----------------------------*/
+
+.rodapeSuperior {
+    background: #2F2F2F;
+    padding: 70px;
+}
+
+.rodapeSuperior .col:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.rodapeSuperior img {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.rodapeSuperior h2 {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.rodapeSuperior ul, ul li, ul li a{
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.rodapeSuperior .col li:hover {
+    color: #FFC12A !important;
+}
+
+/* --------------------------------
+Fim do rodapeSuperior 
+-------------------------------------*/
+
+/* ----------------------------
+Início do rodapeInferior
+----------------------------------- */
+
+.rodapeInferior {
+    background: #161616;
+    text-align: center;
+    padding: 6px;
+}
+
+.rodapeInferior span {
+    font-size: 12px;
+    color: #868686;
+}
+
+/* --------------------------------
+Fim do rodapeInferior
+--------------------------------------- */
+
+/* ------------------------
+Fim do footer
+----------------------------- */
+.secaoAutoclave {
+    background-image: url(../img/sldie1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 60px;
+}
+
+.secaoAutoclave h2 {
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.secaoNav {
+    background: #FFC12A;
+    padding: 8px;
+}
+
+.secaoNav a {
+    text-decoration: none;
+    list-style: none;
+    color: #353535;
+    transition: color 0.3s;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0 5px;
+}
+
+.secaoNav p {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: 200;
+    text-align: center;
+}
+
+.secaoNav a:hover {
+    color: white;
+}
+
+/* --------------------------
+Responsivo
+----------------------------- */
+
+@media (max-width: 767.50px) {
+    /* ------------------------
+    Body
+    ------------------------ */
+    
+    /* ----------------
+    navMenu
+    -------------------- */
+
+    .navResponsive {
+        padding: 15px 5px;
+        background: #313131;
+        margin: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .dropdown {
+        z-index: 95;
+    }
+    
+    .navResponsive .navbar-toggler:focus {
+        box-shadow: none
+    }
+    
+    .navResponsive .navbar-toggler {
+        background: #2F2F2F;
+        border: none;
+    }
+    
+    .navResponsive .navbar-toggler:focus {
+        box-shadow: none;
+        background: #2F2F2F;
+    }
+    
+    .navResponsive .navbar-toggler i {
+        color: white;
+        font-size: 200%;
+    }
+
+    .navResponsive ul li a {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .navResponsive ul li a:hover {
+        color: white;
+    }
+
+    /* Drpdown com submenus */
+
+    .meu-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .meu-dropdown i {
+        font-size: 50%;
+        padding: 0% -10% 20% 0%;
+        margin-left: 10px;
+    }
+      
+    .meu-dropdown-btn {
+        background-color: #313131;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 8px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .meu-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #313131;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        width: 230%;
+    }
+      
+    .meu-dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+      
+    .meu-dropdown .meu-dropdown-content {
+        left: 0%;
+        top: 100%;
+      
+    }
+      
+    .meu-dropdown:hover .meu-dropdown-content {
+        display: block;
+    }
+
+    /* -------------
+    footer
+    ------------------ */
+
+    .rodapeSuperior {
+        padding: 30px 5px;
+    }
+
+    .rodapeSuperior img {
+        padding-bottom: 20px;
+        width: 60%;
+    }
+
+    .rodapeSuperior h2 {
+        padding: 15px 0 5px 0;
+    }
+
+
+    .rodape .rodapeInferior {
+        line-height: 18px;
+    }
+
+    .secaoNav {
+        padding: 0;
+        margin: 0 0 0 -10px;
+    }
+
+    .secaoAutoclave {
+        margin-top: 90px;
+        padding: 20px 0;
+    }
+
+    .secaoAutoclave h2 {
+        font-size: 34px;
+    }
+
+    
+}
