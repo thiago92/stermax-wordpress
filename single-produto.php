@@ -1,6 +1,39 @@
-<?php
-// Template name: Produto 
-get_header(); 
+<?php 
+get_header();
+// Obtém o ID do produto atual
+$product_id = get_the_ID();
+// Obtém o objeto do produto com base no ID
+$product = wc_get_product($product_id);
+
+// Obtém o título do produto
+$product_title = $product->get_name();
+
+// Obtém a descrição do produto
+$product_description = $product->get_description();
+
+// Obtém o preço do produto
+$product_price = $product->get_price();
+
+// Obtém a URL da imagem em destaque do produto
+$product_image_url = wp_get_attachment_url($product->get_image_id());
+
+// Obtém a imagem em destaque (imagem principal) do produto
+$product_image_url = get_the_post_thumbnail_url($product_id, 'full');
+
+// Obtém a galeria de imagens do produto
+$product_gallery = $product->get_gallery_image_ids();
+
+// Se houver imagens na galeria, exiba-as
+// if ($product_gallery) {
+//   foreach ($product_gallery as $gallery_image_id) {
+//     $gallery_image_url = wp_get_attachment_url($gallery_image_id);
+//     echo '<div class="col-md-3 col-3">';
+//     echo '<a href="' . $gallery_image_url . '" data-fancybox="images" data-caption="Produto">';
+//     echo '<img src="' . $gallery_image_url . '" />';
+//     echo '</a>';
+//     echo '</div>';
+//   }
+// }
 ?> 
 
   <section class="secaoAutoclave">
@@ -33,69 +66,36 @@ get_header();
           </div>
       
           <div class="nome-produto">
-            <h2>Autoclave Box Analógica Ciclo Silencioso</h2>
+            <?php echo '<h2>' . get_the_title() . '</h2>'; ?>
           </div>
 
           <div class="descricao">
-            <p><strong>NOME TÉCNICO:</strong> AUTOCLAVE HORIZONTAL ANALÓGICA GRAVITACIONAL SILENCIOSA BOX</p>
-            <ul>
-              <li>-Disponível na capacidade de 21 e 75 litros;</li>
-              <li>-Ciclo confinado de vapor, não libera vapor no ambiente;</li>
-              <li>-Sem válvula externa, com ciclo totalmente silencioso;</li>
-              <li>-Instalação descomplicada;</li>
-              <li>-Câmara de esterilização em aço inoxidável;</li>
-              <li>-Painel analógico em teclado de membrana e controle termodinâmico de temperatura e pressão automático, com acompanhamento através de manômetro/termômetro e indicadores luminosos;</li>
-              <li>-Fecho da tampa de triplo estágio com sistema de restrição de abertura por fuso de encaixe e deslizamento por rolamento axial;</li>
-              <li>-Sistema de porta com construção dupla totalmente em aço carbono e aço inox laminado;</li>
-              <li>-Guarnição em silicone vulcanizado fixada na câmara de esterilização;</li>
-              <li>-Operação fácil e automática que permite a seleção de diferentes ciclos;</li>
-              <li>-Eficiente secagem do material e com opção de ciclos extras;</li>
-              <li>-Utiliza água limpa a cada ciclo para melhor qualidade de vapor;</li>
-              <li>-Sistemas de segurança que controlam todo o ciclo e previnem falhas de operação e/ou funcionamento;</li>
-              <li>-Desligamento automático em caso de excesso de temperatura, pressão ou falta de água;</li>
-              <li>-Produto resistente, de fácil instalação, operação e manutenção;</li>
-              <li>-Ampla rede de assistências técnicas com atendimento por profissionais capacitados;</li>
-              <li>-Registradas na Agência Nacional de Vigilância Sanitária sob o N° 81617740003.</li>
-            </ul>
-            <p>*O Copo Medidor Stermax está fora de linha; por isso, todos os produtos comprados à partir de jan/2022 serão enviados sem esse item.</p>
-            <p>*Todas as autoclaves Stermax são acompanhadas de um manual de instruções digital, possível de ser acessado através de um QRcode no próprio produto. Os manuais impressos não são enviados devido ao nosso compromisso de preservação da natureza e do meio ambiente. Caso tenha dúvidas, entre em contato por nossos canais de atendimento.</p>
+          <?php echo '<div>' . the_content() . '</div>'; ?>
           </div>
         </div>
         <div class="col-md-5 col-12">
           <div class="row div-img">
-            <p class="imglist" style="max-width: 1000px;"></p>
+            <p class="imglist"></p>
               <div class="col-md-12 col-12">
-                <a href="img/prod1.jpg" data-fancybox="images" data-caption="Produto 1">
-                  <img src="<?php bloginfo("template_url");?>/img/prod1.jpg" />
-                </a>
+              <a href="<?php echo $product_image_url; ?>" data-fancybox="images" data-caption="<?php echo get_the_title() ; ?>">
+                <img src="<?php echo $product_image_url; ?>" />
+              </a>
               </div>
-              <div class="col-md-3 col-3">
-                <a href="img/prod1.jpg" data-fancybox="images" data-caption="Produto 1">
-                  <img src="<?php bloginfo("template_url");?>/img/prod1.jpg" />
-                </a>
-              </div>
-              <div class="col-md-3 col-3">
-                <a href="img/prod2.jpg" data-fancybox="images" data-caption="Produto 2">
-                  <img src="<?php bloginfo("template_url");?>/img/prod2.jpg" />
-                </a>
-              </div>
-              <div class="col-md-3 col-3">
-                <a href="img/prod3.jpg" data-fancybox="images" data-caption="Produto 3">
-                  <img src="<?php bloginfo("template_url");?>/img/prod3.jpg" />
-                </a>
-              </div>
-              <div class="col-md-3 col-3">
-                <a href="img/prod1.jpg" data-fancybox="images" data-caption="Produto 4">
-                  <img src="<?php bloginfo("template_url");?>/img/prod1.jpg" />
-                </a>
-              </div>
+              <?php
+                if ($product_gallery):
+                  foreach ($product_gallery as $gallery_image_id): 
+                    $gallery_image_url = wp_get_attachment_url($gallery_image_id);  
+                    ?>
+                    <div class="col-md-3 col-3">
+                      <a href="<?php echo $gallery_image_url; ?>" data-fancybox="images" data-caption="<?php echo get_the_title(); ?>">
+                        <img src="<?php echo $gallery_image_url;?>" />
+                      </a>
+                    </div>
+                  <?php 
+                  endforeach;
+                endif;
+              ?>
             </p>
-            <div class="col-md-12">
-              <h3>Cores disponíveis:</h3>
-            </div>
-            <div class="col-md-12 cores">
-              <img src="<?php bloginfo("template_url");?>/img/cores.png" alt="">
-            </div>
           </div>
         </div>
       </div>

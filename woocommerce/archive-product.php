@@ -1,6 +1,35 @@
 <?php
-// Template name: Produtos 
-get_header();
+/**
+ * The Template for displaying product archives, including the main shop page which is a post type archive
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.4.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+// Slugs das categorias que você deseja exibir
+$selected_category_slugs = array('12-litros-flex', 'autoclaves', 'acessorios', 'perifericos', 'horizontais', 'verticais');
+
+// Obtém os detalhes das categorias pelos slugs
+$selected_categories = array();
+foreach ($selected_category_slugs as $slug) {
+    $category = get_term_by('slug', $slug, 'product_cat');
+    if ($category) {
+        $selected_categories[] = $category;
+    }
+}
+
+get_header( 'shop' );
 
 // Slugs das categorias que você deseja exibir
 $selected_category_slugs = array('12-litros-flex', 'autoclaves', 'acessorios', 'perifericos', 'horizontais', 'verticais');
@@ -145,4 +174,4 @@ foreach ($selected_category_slugs as $slug) {
     
   </section>
 
-  <?php get_footer(); ?>
+<?php get_footer( 'shop' ); ?>

@@ -44,6 +44,9 @@ window.addEventListener("scroll", function() {
       }
 });
 
+//aplicando o zoom a imagem do carrosel
+
+
 //Form do telefone
 let tel = $("input[name=tel]");
     tel.mask('(00) 0 0000-0000', {reverse: false});

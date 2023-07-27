@@ -58,7 +58,7 @@
       <div class="container wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
         <div class="row">
           <div class="col">
-            <img src="img/logo-stermax-branco.png" alt="">
+            <img src="<?php bloginfo("template_url");?>/img/logo-stermax-branco.png" alt="">
           </div>
           <div class="col">
             <h2>Autoclaves</h2>
@@ -97,7 +97,7 @@
       <div class="container wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
         <div class="row">
           <div class="col-12">
-            <img src="img/logo-stermax-branco.png" alt="">
+            <img src="<?php bloginfo("template_url");?>/img/logo-stermax-branco.png" alt="">
           </div>
           <div class="col-12">
             <h2>Autoclaves</h2>
@@ -153,6 +153,8 @@
 <script src="<?php bloginfo("template_url");?>/js/meu-script.js"></script>
 <!-- <script src="js/bootstrap.min.js"></script> -->
 <script src="<?php bloginfo("template_url");?>/js/bootstrap.bundle.min.js"></script>
+<!-- Fancybox LightBox -->
+<script src="<?php bloginfo("template_url");?>/js/jquery.fancybox.min.js"></script>
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/4fa080e3da.js" crossorigin="anonymous"></script>
 <!-- Animações com o WOW.JS -->

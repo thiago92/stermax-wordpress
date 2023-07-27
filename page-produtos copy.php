@@ -1,7 +1,6 @@
 <?php
-// Template name: Produtos 
+// Template name: Produtoscopy
 get_header();
-
 // Slugs das categorias que você deseja exibir
 $selected_category_slugs = array('12-litros-flex', 'autoclaves', 'acessorios', 'perifericos', 'horizontais', 'verticais');
 

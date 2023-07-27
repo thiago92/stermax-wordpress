@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url");?>/css/estilo.css">
     <!-- Animações -->
     <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url");?>/css/animate.css">
+    <!-- LightBox -->
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_url");?>/css/jquery.fancybox.min.css">
 </head>
 <body>
   <header>
@@ -47,7 +49,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 col-4">
-            <img class="zoomImg" src="img/logo-stermax-branco.png" alt="">
+            <img class="zoomImg" src="<?php bloginfo("template_url");?>/img/logo-stermax-branco.png" alt="">
           </div>
           <div class="col-md-8 col-8">
             <div class="navbar navbar-expand-lg">
@@ -61,14 +63,37 @@
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Produtos
                       </a>
-                      <ul class="sub-menu clearfix p-5">
-                        <li><a href="#">Autoclaves<i class="fa-sharp fa-solid fa-play"></i></a>
-                          <ul class="sub-menu">
-                              <li><a href="<?php bloginfo("url");?>/produtos">Lançamento Linha Flex</a></li>
-                              <li><a href="<?php bloginfo("url");?>/produtos">Lançamento Linha Work</a></li>
-                          </ul>
-                        </li>
-                      </ul>
+                      <?php
+                        // Obtém todas as categorias de produtos
+                        $product_categories = get_terms('product_cat', array('hide_empty' => false, 'parent' => 0));
+
+                        if (!empty($product_categories)) {
+                            echo '<ul class="sub-menu clearfix p-5">';
+                            
+                            // Loop através das categorias principais
+                            foreach ($product_categories as $category) {
+                                echo '<li><a href="' . get_term_link($category) . '">' . $category->name . '<i class="fa-sharp fa-solid fa-play"></i></a>';
+                                
+                                // Obtém todas as subcategorias da categoria atual
+                                $sub_categories = get_terms('product_cat', array('hide_empty' => false, 'parent' => $category->term_id));
+                                
+                                if (!empty($sub_categories)) {
+                                    echo '<ul class="sub-menu">';
+                                    
+                                    // Loop através das subcategorias
+                                    foreach ($sub_categories as $sub_category) {
+                                        echo '<li><a href="' . get_term_link($sub_category) . '">' . $sub_category->name . '</a></li>';
+                                    }
+                                    
+                                    echo '</ul>';
+                                }
+                                
+                                echo '</li>';
+                            }
+                            
+                            echo '</ul>';
+                        }
+                      ?>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="<?php bloginfo("url");?>/assistencia">Assistência</a>
@@ -100,7 +125,7 @@
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
               <div class="navbar-brand">
-                <img src="img/logo-stermax-branco.png" alt="">
+                <img src="<?php bloginfo("template_url");?>/img/logo-stermax-branco.png" alt="">
               </div>
               <button id="toggle-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i id="toggle-icon" class="fa-solid fa-bars"></i>
@@ -119,6 +144,18 @@
                           <div class="meu-dropdown-content">
                             <a href="<?php bloginfo("url");?>/produtos">Lançamento Linha Flex</a>
                             <a href="<?php bloginfo("url");?>/produtos">Lançamento Linha Work</a>
+                            <a href="<?php bloginfo("url");?>/produtos">Horizontais</a>
+                            <a href="<?php bloginfo("url");?>/produtos">Verticais</a>
+                            <a href="<?php bloginfo("url");?>/produtos">Personalizados</a>
+                          </div>
+                          <button class="meu-dropdown-btn">Acessórios<i class="fa-solid fa-play fa-rotate-90"></i></button>
+                          <div class="meu-dropdown-content">
+                            <a href="<?php bloginfo("url");?>/produtos">Suporte para Envelopes</a>
+                          </div>
+                          <button class="meu-dropdown-btn">Periféricos<i class="fa-solid fa-play fa-rotate-90"></i></button>
+                          <div class="meu-dropdown-content">
+                            <a href="<?php bloginfo("url");?>/produtos">Incubadoras</a>
+                            <a href="<?php bloginfo("url");?>/produtos">Seladoras</a>
                           </div>
                         </div>
                       </div>

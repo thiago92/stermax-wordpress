@@ -1,6 +1,6 @@
 <?php 
 // Single Cursos
-if (get_post_type() == 'produto') :
-    get_template_part('single', 'produtos');
+if (get_post_type() == 'product') :
+    get_template_part('single', 'produto');
 endif;
 ?>
